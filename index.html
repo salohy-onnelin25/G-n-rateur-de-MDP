@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generateur de mot de passe</title>
+    <link rel="stylesheet" href="./Assets/styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Générateur MDP</h1>
+      <nav>
+        <ul>
+          <li><a href=""> Essai gratuit+</a></li>
+          <li><i class="fa-solid fa-comments"></i></li>
+          <li><i class="fa-solid fa-user"></i></li>
+          <li><i class="fa-solid fa-earth-americas"></i></li>
+          <li><i class="fa-solid fa-bars"></i></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="password-display">
+            <input type="text" id="passwordOutput" placeholder="Cliquez sur Générer" readonly>
+            <button id="copyBtn" title="Copier le mot de passe">📋</button>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="lengthInput"><span id="lengthValue">12</span></label>
+                <input type="range" id="lengthInput" value="12" min="8" max="30">
+            </div>
+
+            <div class="options-group">
+                <div class="checkboxes">
+                    <input type="checkbox" id="lowercase" checked>
+                    <label for="lowercase">(a-z)</label>
+
+                    <input type="checkbox" id="uppercase">
+                    <label for="uppercase">(A-Z)</label>
+
+                    <input type="checkbox" id="numbers">
+                    <label for="numbers">(0-9)</label>
+
+                    <input type="checkbox" id="symbols">
+                    <label for="symbols">(@#$)</label>
+                </div>
+            </div>
+        </div>
+        
+        <button id="generateBtn" class="generate-btn">Générer le Mot de Passe</button>
+
+        <div id="alertMessage" class="alert-box" style="display: none;"></div>
+    </div>
+    </main>
+
+    <script src="./Assets/js/index.js"></script>
+  </body>
+</html>

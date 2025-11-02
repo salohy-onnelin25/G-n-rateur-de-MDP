@@ -1,0 +1,23 @@
+header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    padding: 20px;
+    align-items: center;
+    background: $black;
+    color: $white;
+    h1 {
+        font-size: clamp(1rem, 2.5vw, 3rem);
+    }
+    @media (max-width: 750px) {
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4) {
+            display: none;
+        }
+        @media (max-width: 500px) {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+    }
+}

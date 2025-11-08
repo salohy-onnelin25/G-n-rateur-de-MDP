@@ -26,38 +26,60 @@
     <main>
       <div class="container">
         <div class="password-display">
-            <input type="text" id="passwordOutput" placeholder="Cliquez sur Générer" readonly>
-            <button id="copyBtn" title="Copier le mot de passe">📋</button>
+          <input
+            type="text"
+            id="passwordOutput"
+            placeholder="Cliquez sur Générer"
+            readonly
+          />
+          <button id="copyBtn" title="Copier le mot de passe">📋</button>
         </div>
 
         <div class="controls">
-            <div class="control-group">
-                <label for="lengthInput"><span id="lengthValue">12</span></label>
-                <input type="range" id="lengthInput" value="12" min="8" max="30">
+          <div class="control-group">
+            <label for="lengthInput"><span id="lengthValue">12</span></label>
+            <input type="range" id="lengthInput" value="12" min="8" max="30" />
+          </div>
+
+          <div class="options-group">
+            <div class="char-options-container">
+              <button
+                class="char-option active"
+                id="lowercaseBtn"
+                data-char="lower"
+              >
+                a-z
+              </button>
+              <button class="char-option" id="uppercaseBtn" data-char="upper">
+                A-Z
+              </button>
+              <button class="char-option" id="numbersBtn" data-char="number">
+                0-9
+              </button>
+              <button class="char-option" id="symbolsBtn" data-char="symbol">
+                @#$
+              </button>
             </div>
-
-            <div class="options-group">
-                <div class="checkboxes">
-                    <input type="checkbox" id="lowercase" checked>
-                    <label for="lowercase">(a-z)</label>
-
-                    <input type="checkbox" id="uppercase">
-                    <label for="uppercase">(A-Z)</label>
-
-                    <input type="checkbox" id="numbers">
-                    <label for="numbers">(0-9)</label>
-
-                    <input type="checkbox" id="symbols">
-                    <label for="symbols">(@#$)</label>
-                </div>
-            </div>
+          </div>
         </div>
-        
-        <button id="generateBtn" class="generate-btn">Générer le Mot de Passe</button>
 
-        <div id="alertMessage" class="alert-box" style="display: none;"></div>
-    </div>
+        <button id="generateBtn" class="generate-btn">
+          Générer le Mot de Passe
+        </button>
+
+        <div id="alertMessage" class="alert-box" style="display: none"></div>
+      </div>
     </main>
+    <footer class="flip-clock-container">
+      <p id="currentDate"></p>
+      <div class="flip-clock" id="flipClock">
+        <span class="digit-pair" id="hours">00</span>
+        <span class="separator">:</span>
+        <span class="digit-pair" id="minutes">00</span>
+        <span class="separator">:</span>
+        <span class="digit-pair" id="seconds">00</span>
+      </div>
+    </footer>
 
     <script src="./Assets/js/index.js"></script>
   </body>

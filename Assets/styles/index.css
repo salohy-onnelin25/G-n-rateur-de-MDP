@@ -14,7 +14,7 @@ a {
   border-radius: 10px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  font-size: clamp(0.8rem, 1.5vw, 2rem);
+  font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 a:hover {
@@ -25,6 +25,10 @@ a:hover {
 
 i {
   cursor: pointer;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 ul {
@@ -69,6 +73,36 @@ body {
           align-items: center;
   background: rgb(231, 144, 159);
 }
+body .flip-clock-container {
+  margin-top: auto;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+body .flip-clock {
+  font-family: monospace;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: bold;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: 5px;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+body .digit-pair {
+  color: black;
+  padding: 0 5px;
+  border-radius: 5px;
+  min-width: 0.8em;
+  text-align: center;
+}
+body .separator {
+  color: black;
+}
 
 header {
   width: 100%;
@@ -80,6 +114,11 @@ header {
           align-items: center;
   background: black;
   color: white;
+}
+header #currentDate {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 header h1 {
   font-size: clamp(1rem, 2.5vw, 3rem);
@@ -109,6 +148,11 @@ main {
           justify-content: center;
   background: rgba(128, 128, 128, 0.795);
   border-radius: 10px;
+}
+@media (max-width: 380px) {
+  main {
+    width: 85%;
+  }
 }
 main .container {
   display: -webkit-box;
@@ -142,26 +186,49 @@ main .container .password-display {
 main .container .control-group {
   margin-top: 10px;
 }
-main .container .checkboxes {
+main .container .char-options-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
   margin: 20px 0;
-  font-size: clamp(0.8rem, 1.5vw, 2rem);
 }
-main .container .checkboxes #lowercase,
-main .container .checkboxes #uppercase,
-main .container .checkboxes #numbers,
-main .container .checkboxes #symbols {
+main .container .char-option {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  padding: 8px 15px;
+  border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+}
+main .container .char-option:hover {
+  background-color: black;
+  color: white;
+}
+main .container .char-option.active {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
 }
 main .container #passwordOutput {
   width: 100%;
-  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   padding: 10px;
   text-align: center;
   border-radius: 10px;
 }
 main .container #generateBtn {
   margin-top: 20px;
-  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;

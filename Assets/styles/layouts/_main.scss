@@ -5,6 +5,10 @@ main {
     justify-content: center;
     background: $gray;
     border-radius: 10px;
+    @media (max-width: 380px){
+        width: 85%;
+    }
+    
     .container {
         display: flex;
         flex-direction: column;
@@ -16,32 +20,54 @@ main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 95%; 
+            width: 95%;
             margin-bottom: 20px;
         }
         .control-group {
             margin-top: 10px;
         }
-        .checkboxes {
+        .char-options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             margin: 20px 0;
-            font-size: clamp(0.8rem, 1.5vw, 2rem);
-            #lowercase,
-            #uppercase,
-            #numbers,
-            #symbols {
-                cursor: pointer;
-            }
+        }
+        .char-option {
+            background-color: $white;
+            color: $black;
+            font-weight: bold;
+            border: 2px solid $black;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition:
+                background-color 0.3s,
+                color 0.3s,
+                border-color 0.3s;
+            font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+        }
+
+        .char-option:hover {
+            background-color: $black;
+            color: $white;
+        }
+
+        .char-option.active {
+            background-color: $selected-color;
+            color: $white;
+            border-color: $selected-color;
         }
         #passwordOutput {
             width: 100%;
-            font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
             padding: 10px;
             text-align: center;
             border-radius: 10px;
         }
         #generateBtn {
             margin-top: 20px;
-            font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
             padding: 5px;
             border-radius: 5px;
             cursor: pointer;

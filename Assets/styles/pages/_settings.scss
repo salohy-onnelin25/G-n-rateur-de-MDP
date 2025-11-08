@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -12,42 +12,77 @@
     background-repeat: $repeat;
 }
 
-$white:white;
-$black:black;
-$gray:rgba(128, 128, 128, 0.795);
-$pink:rgb(231, 144, 159);
+$white: white;
+$black: black;
+$gray: rgba(128, 128, 128, 0.795);
+$pink: rgb(231, 144, 159);
+$selected-color: #4caf50;
 
-a{
+a {
     color: $white;
     border: 1px solid $white;
     padding: 5px;
     border-radius: 10px;
     transition: all 0.3s ease;
-    font-size: clamp(0.8rem, 1.5vw, 2rem);
+    font-size: clamp(1rem, 1.5vw, 2rem);
 }
 a:hover {
     background-color: $white;
     color: $black;
-    border: 1px solid $black; 
+    border: 1px solid $black;
 }
-i{
+i {
     cursor: pointer;
 }
-ul{
+p{
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+ul {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    @media (max-width: 500px){
+    @media (max-width: 500px) {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap:20px;
+        gap: 20px;
     }
 }
-body{
+
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: $pink;
+    .flip-clock-container {
+        margin-top: auto; 
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .flip-clock {
+        font-family: monospace; 
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: bold;
+        color: $black;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: inline-flex;
+        gap: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .digit-pair {
+        color: $black;
+        padding: 0 5px;
+        border-radius: 5px;
+        min-width: 0.8em;
+        text-align: center;
+    }
+
+    .separator {
+        color: $black; // Separator color
+    }
 }

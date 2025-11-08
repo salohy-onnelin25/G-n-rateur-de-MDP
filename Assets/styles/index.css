@@ -73,6 +73,165 @@ body {
           align-items: center;
   background: rgb(231, 144, 159);
 }
+body .side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  background-color: white;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.4s ease-out;
+  transition: -webkit-transform 0.4s ease-out;
+  transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+}
+body .side-menu.open {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+body .menu-content {
+  padding: 20px;
+}
+body .menu-content h3 {
+  color: black;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgb(231, 144, 159);
+  padding-bottom: 5px;
+}
+body .menu-content ul {
+  display: block;
+  padding: 0;
+}
+body .menu-content ul li {
+  margin-bottom: 10px;
+}
+body .menu-content ul li a {
+  color: black;
+  border: none;
+  font-size: 1.1rem;
+  padding: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body .menu-content ul li a i {
+  margin-right: 10px;
+  color: rgb(231, 144, 159);
+}
+body .menu-content ul li a:hover {
+  background-color: transparent;
+  color: rgb(231, 144, 159);
+}
+@media (min-width: 768px) {
+  body .side-menu {
+    left: unset;
+    right: 0;
+  }
+}
+body .contact-trigger {
+  position: relative;
+}
+body .portfolio-trigger {
+  position: relative;
+}
+body .portfolio-panel {
+  position: absolute;
+  top: 250%;
+  right: 0;
+  width: 250px;
+  background-color: white;
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  -webkit-transform: translateY(-100%) scaleY(0);
+          transform: translateY(-100%) scaleY(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s ease-out, visibility 0.3s, -webkit-transform 0.3s ease-out;
+  transition: opacity 0.3s ease-out, visibility 0.3s, -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s, -webkit-transform 0.3s ease-out;
+}
+body .portfolio-panel p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+body .portfolio-panel a.portfolio-link {
+  background-color: rgb(231, 144, 159);
+  color: white;
+  border: 1px solid rgb(231, 144, 159);
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 1rem;
+  text-align: center;
+}
+body .portfolio-panel a.portfolio-link:hover {
+  background-color: rgb(221.9333333333, 102.0666666667, 122.7333333333);
+}
+body .portfolio-trigger:hover .portfolio-panel {
+  -webkit-transform: translateY(0) scaleY(1);
+          transform: translateY(0) scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}
+body .contact-panel {
+  position: absolute;
+  top: 250%;
+  right: 0;
+  width: 250px;
+  background-color: white;
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  -webkit-transform: translateY(-100%) scaleY(0);
+          transform: translateY(-100%) scaleY(0);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s ease-out, visibility 0.3s, -webkit-transform 0.3s ease-out;
+  transition: opacity 0.3s ease-out, visibility 0.3s, -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s, -webkit-transform 0.3s ease-out;
+}
+body .contact-panel a.mail-link {
+  color: rgb(231, 144, 159);
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  word-break: break-all;
+}
+body .contact-panel p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+body .contact-trigger:hover .contact-panel {
+  -webkit-transform: translateY(0) scaleY(1);
+          transform: translateY(0) scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}
+body nav ul {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 body .flip-clock-container {
   margin-top: auto;
   padding: 20px;

@@ -4,6 +4,7 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 @mixin background-img($url, $size: cover, $position: center, $repeat: no-repeat) {
     background-image: url(#{$url});
@@ -34,13 +35,14 @@ a:hover {
 i {
     cursor: pointer;
 }
-p{
+p {
     font-size: clamp(1rem, 2vw, 2rem);
 }
 ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: row;
+    gap: 20px;
     @media (max-width: 500px) {
         display: flex;
         flex-direction: row;
@@ -55,111 +57,51 @@ body {
     flex-direction: column;
     align-items: center;
     background: $pink;
-
-    .side-menu {
-    position: fixed; // Fixé par rapport à la fenêtre
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 400px; // Limite la largeur pour un look mobile/menu
-    height: auto;
-    background-color: $white; // Par exemple
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1001; // S'assurer qu'il est au-dessus du header et main
-    
-    // État initial : caché en haut
-    transform: translateY(-100%);
-    transition: transform 0.4s ease-out; // Animation de glissement
 }
 
-// État affiché : gère le glissement vers le bas
-.side-menu.open {
-    transform: translateY(0);
-}
 
-.menu-content {
-    padding: 20px;
-    
-    h3 {
-        color: $black;
-        margin-bottom: 15px;
-        border-bottom: 2px solid $pink;
-        padding-bottom: 5px;
-    }
-    
-    ul {
-        display: block; // Empêche le flex horizontal du nav
-        padding: 0;
-        
-        li {
-            margin-bottom: 10px;
-            
-            // Style des liens à l'intérieur du menu
-            a {
-                color: $black; // Change la couleur du texte dans le menu
-                border: none; // Enlève la bordure du header
-                font-size: 1.1rem;
-                padding: 5px 0;
-                display: flex;
-                align-items: center;
-                
-                i {
-                    margin-right: 10px;
-                    color: $pink; // Colore l'icône
-                }
-            }
-            a:hover {
-                background-color: transparent; // Annule le hover du header
-                color: $pink;
-            }
-        }
-    }
-}
-
-// Optionnel : Ajuster la largeur maximale du menu sur les écrans plus grands
 @media (min-width: 768px) {
     .side-menu {
         left: unset;
-        right: 0; // Le fait glisser depuis la droite (plus classique pour un menu latéral)
+        right: 0;
     }
 }
-    .contact-trigger {
-    position: relative; 
+.contact-trigger {
+    position: relative;
 }
 
 .portfolio-trigger {
-    position: relative; // Nécessaire pour positionner le panneau
+    position: relative;
 }
 
-// 2. Style du panneau de portfolio (initialement caché)
 .portfolio-panel {
     position: absolute;
-    top: 250%; // Commence juste en dessous du <li> parent
+    top: 250%;
     right: 0;
     width: 250px;
-    background-color: $white; // Utilisation de votre variable $white
-    color: $black; // Utilisation de votre variable $black
+    background-color: $white;
+    color: $black;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    
-    // Position initiale pour l'animation de glissement
-    transform: translateY(-100%) scaleY(0); 
-    transform-origin: top; 
+
+    transform: translateY(-100%) scaleY(0);
+    transform-origin: top;
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s;
-    
+    transition:
+        transform 0.3s ease-out,
+        opacity 0.3s ease-out,
+        visibility 0.3s;
+
     p {
         margin-bottom: 10px;
         font-size: 0.9rem;
     }
 
-    // Style spécifique pour le lien du portfolio
     a.portfolio-link {
-        // Appliquer un style de bouton pour le rendre clair et cliquable
-        background-color: $pink; // Utilisation de votre variable $pink
+        background-color: $pink;
         color: $white;
         border: 1px solid $pink;
         padding: 8px 12px;
@@ -169,20 +111,19 @@ body {
         text-align: center;
 
         &:hover {
-            background-color: darken($pink, 10%); // Assombrir au survol
+            background-color: darken($pink, 10%);
         }
     }
 }
 
-// 3. Effet de survol (HOVER)
 .portfolio-trigger:hover .portfolio-panel {
-    transform: translateY(0) scaleY(1); // Fait glisser le panneau à sa position normale
+    transform: translateY(0) scaleY(1);
     opacity: 1;
     visibility: visible;
 }
 .contact-panel {
     position: absolute;
-    top: 250%; 
+    top: 250%;
     right: 0;
     width: 250px;
     background-color: $white;
@@ -190,22 +131,23 @@ body {
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000; 
-    
-    
-    transform: translateY(-100%) scaleY(0); 
- 
+    z-index: 1000;
+
+    transform: translateY(-100%) scaleY(0);
+
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s;
-    
-    
+    transition:
+        transform 0.3s ease-out,
+        opacity 0.3s ease-out,
+        visibility 0.3s;
+
     a.mail-link {
-        color: $pink; 
+        color: $pink;
         border: none;
         padding: 0;
         font-size: 1rem;
-        word-break: break-all; 
+        word-break: break-all;
     }
 
     p {
@@ -215,44 +157,41 @@ body {
 }
 
 .contact-trigger:hover .contact-panel {
-    transform: translateY(0) scaleY(1); 
+    transform: translateY(0) scaleY(1);
     opacity: 1;
     visibility: visible;
 }
 
-
 nav ul {
-    
-    align-items: center; 
+    align-items: center;
 }
-    .flip-clock-container {
-        margin-top: auto; 
-        padding: 20px;
-        width: 100%;
-        text-align: center;
-    }
+.flip-clock-container {
+    margin-top: auto;
+    padding-bottom: 100px;
+    width: 100%;
+    text-align: center;
+}
 
-    .flip-clock {
-        font-family: monospace; 
-        font-size: clamp(2rem, 5vw, 4rem);
-        font-weight: bold;
-        color: $black;
-        padding: 10px 20px;
-        border-radius: 10px;
-        display: inline-flex;
-        gap: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+.flip-clock {
+    font-family: monospace;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    color: $black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-flex;
+    gap: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    .digit-pair {
-        color: $black;
-        padding: 0 5px;
-        border-radius: 5px;
-        min-width: 0.8em;
-        text-align: center;
-    }
+.digit-pair {
+    color: $black;
+    padding: 0 5px;
+    border-radius: 5px;
+    min-width: 0.8em;
+    text-align: center;
+}
 
-    .separator {
-        color: $black; 
-    }
+.separator {
+    color: $black;
 }
